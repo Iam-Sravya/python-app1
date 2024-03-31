@@ -19,13 +19,10 @@ phases:
       - cd simpe-python-app/
       - echo "Building Docker image..."
       - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
-      - docker build -t "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/simpe-python-flask-app:latest" .
-      - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/simpe-python-flask-app:latest"
+      - docker build -t "docker.io/sravyabompally/simpe-python-flask-app:latest" .
+      - docker push "docker.io/sravyabompally/simpe-python-flask-app:latest"
   post_build:
     commands:
       - echo "Build completed successfully!"
-artifacts:
-  files:
-    - '**/*'
-  base-directory: ../simpe-python-app
+
 
